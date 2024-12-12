@@ -25,8 +25,8 @@ namespace Orchestrator.Core.Services
             await _eventPublisher.PublishAsync(new RequestReceived
             {
                 TransactionId = transactionId,
-                PSPId = request.PSPId,
-                PayloadSummary = request.Summary
+                PSPId = request?.Identification?.PspId,
+                PayloadSummary = request?.Summary
             },"topic");
 
             // Additional logic here for mapping and further processing
